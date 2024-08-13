@@ -16,7 +16,7 @@ const sendShieldedTransaction = async (signer, destination, data, value) => {
 async function main() {
   const contractAddress = fs.readFileSync("contract.txt", "utf8").trim();
   const [signer] = await hre.ethers.getSigners();
-  const contractFactory = await hre.ethers.getContractFactory("TestNFT");
+  const contractFactory = await hre.ethers.getContractFactory("PrivateNFT");
   const contract = contractFactory.attach(contractAddress);
   const functionName = "safeMint";
   const safeMintTx = await sendShieldedTransaction(
